@@ -1,0 +1,25 @@
+{
+  "name": "hijacked",
+  "version": "0.0.0",
+  "description": "A utility to hijack required modules while testing.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanmwalker/hijacked"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter spec --recursive --ui bdd"
+  },
+  "author": "Sean M. Walker",
+  "license": "BSD",
+  "dependencies": {
+    "request": "~2.27.0"
+  },
+  "devDependencies": {
+    "chai": "~1.8.0",
+    "mocha": "~1.13.0",
+    "sinon": "~1.7.3",
+    "sinon-chai": "~2.4.0",
+    "istanbul": "~0.1.44"
+  }
+}

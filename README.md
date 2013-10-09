@@ -18,7 +18,6 @@ it('should execute the real module, then the hijacked one, then the real one aga
 			callback.call(this, null, { statusCode: 200 }, 'Responded with success.');
 		});
 
-		var actual = null;
 		request = require('request');
 		request('url', {"options": "options go here"}, function(err, res, data) {
 			data.should.equal('Responded with success.');

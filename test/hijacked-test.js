@@ -61,29 +61,25 @@ describe('stash-api', function() {
 			functionName(hijackedRequest.originalModule).should.equal('request');
 			hijackedRequest.restore.should.not.be.null;
 			hijackedRequest.isHijacked.should.be.true;
-			var actual = null;
 
 			var request = require('request');
 			request('url', {"options": "options go here"}, function(err, res, data) {
-				actual = 'Data: ' + data;
-			});
-			// We can get away with this sync nature of this test here, because we're handling the mocked module.
-			actual.should.equal('Data: Responded with success.');
+				data.should.equal('Responded with success.');
 
-			// Restore and validate
-			hijackedRequest.restore();
-			hijackedRequest.isHijacked.should.be.false;
+				// Restore and validate
+				hijackedRequest.restore();
+				hijackedRequest.isHijacked.should.be.false;
 
-			// Ensure we don't 'toggle' after we unhijack it.
-			hijackedRequest.restore();
-			hijackedRequest.isHijacked.should.be.false;
+				// Ensure we don't 'toggle' back to hijacked after we undo the hijacking.
+				hijackedRequest.restore();
+				hijackedRequest.isHijacked.should.be.false;
 
-			// Now check the original function to ensure it still works in the 'undone' state.
-			request = require('request');
-			request('http://www.google.com', function(err, res, data) {
-				actual = 'Status Code: ' + res.statusCode;
-				actual.should.equal('Status Code: 200');
-				done();
+				// Now check the original function to ensure it still works in the 'undone' state.
+				request = require('request');
+				request('http://www.google.com', function(err, res, data) {
+					res.statusCode.should.equal(200);
+					done();
+				});
 			});
 		});
 
@@ -99,7 +95,6 @@ describe('stash-api', function() {
 					callback.call(this, null, { statusCode: 200 }, 'Responded with success.');
 				});
 
-				var actual = null;
 				request = require('request');
 				request('url', {"options": "options go here"}, function(err, res, data) {
 					data.should.equal('Responded with success.');

@@ -1,6 +1,6 @@
 {
   "name": "hijacked",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A utility to hijack required modules while testing.",
   "repository": {
     "type": "git",

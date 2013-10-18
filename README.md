@@ -1,7 +1,10 @@
 #Hijacked
-Have you ever wanted to override a dependencythat is used by an NPM module that you are trying to test? Did you try <a href='https://github.com/arunoda/horaa'>Horaa</a>, and think 'This thing is great. Now if only I could handle the constructor based function as well.'.
+Have you ever wanted to override a dependency that is used by an NPM module that you are trying to test? Did you try <a href='https://github.com/arunoda/horaa'>Horaa</a>, and think 'This thing is great. Now if only I could handle the constructor based function as well.'.
 
-Well, here you go. This is a very small library that enables you to override any npm required module that your target module is depending on. All you need to do is to hijack the indended module before your target module requires in the module you want to hijack. This is for entire NPM modules only. If you only want to hijack a child function on a module, look at  <a href='https://github.com/arunoda/horaa'>Horaa</a>, as it seems to do that very well.
+Well, here you go. This is a very small library that enables you to override any npm required module that your target module is depending on. All you need to do is to hijack the intended module before your target module requires in the module you want to hijack. This is for entire NPM modules only. If you only want to hijack a child function on a module, look at  <a href='https://github.com/arunoda/horaa'>Horaa</a>, as it seems to do that very well.
+
+##Note
+Please ensure that you have mocha installed globally if you plan to run the unit tests for this project. 
 
 ##Usage
 

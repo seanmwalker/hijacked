@@ -8,18 +8,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec --recursive --ui bdd"
+    "test": "jest --coverage"
   },
   "author": "Sean M. Walker",
   "license": "BSD",
-  "dependencies": {
-    "request": "~2.27.0"
-  },
   "devDependencies": {
-    "chai": "~1.8.0",
-    "mocha": "~1.13.0",
-    "sinon": "~1.7.3",
-    "sinon-chai": "~2.4.0",
-    "istanbul": "~0.1.44"
+    "jest": "~29.7.0"
   }
 }
